@@ -74,7 +74,7 @@ public abstract class Batiment {
                 + ", presentCharacters=" + presentCharacters + "]";
     }
 
-    public boolean accueillir(Character character){
+    public boolean welcome(Character character){
 
         if (nbPresentCharacters < welcomingCapacity) {
 
@@ -93,7 +93,7 @@ public abstract class Batiment {
 
     }
 
-    public void entretenir(){
+    public void clean(){
 
         if(nbPresentCharacters == 0 && clealinessLevel == Cleanliness.bad){
 
