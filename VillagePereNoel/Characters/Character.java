@@ -1,7 +1,7 @@
 package VillagePereNoel.Characters;
 
 import VillagePereNoel.Food;
-import TD_PERE_NOEL.Batiments.Batiment;
+import VillagePereNoel.Batiments.Batiment;
 
 public abstract class Character {
 

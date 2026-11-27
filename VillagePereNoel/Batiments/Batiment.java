@@ -1,105 +1,85 @@
-package TD_PERE_NOEL.Batiments;
+package VillagePereNoel.Batiments;
 
 import java.util.ArrayList;
 
-import TD_PERE_NOEL.Personnages.Personnage;
+import javax.xml.stream.events.Characters;
+
+import VillagePereNoel.Characters.Character;
 
 public abstract class Batiment {
 
-    private enum Proprete {mauvais, correct, bon} ;
+    private enum Cleanliness {bad, correct, good} ;
 
-    private String nomBat ;
-    private int superficie ; 
-    private int capaciteAccueil ;
-    private Proprete niveauProprete ;
-    private int nbPersoPresent ;
-    private ArrayList<Personnage> personnagesPresent ;
+    private String name ;
+    private int surface ; 
+    private int welcomingCapacity ;
+    private Cleanliness clealinessLevel ;
+    private int nbPresentCharacters ;
+    private ArrayList<Character> presentCharacters ;
 
-    public String getNomBat() {
+    
 
-        return nomBat;
+    public String getName() {
+        return name;
     }
 
-    public void setNomBat(String nomBat) {
-
-        this.nomBat = nomBat;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getSuperficie() {
-
-        return superficie;
+    public int getSurface() {
+        return surface;
     }
 
-    public void setSuperficie(int superficie) {
-
-        this.superficie = superficie;
-
+    public void setSurface(int surface) {
+        this.surface = surface;
     }
 
-    public int getCapaciteAccueil() {
-
-        return capaciteAccueil;
-
+    public int getWelcomingCapacity() {
+        return welcomingCapacity;
     }
 
-    public void setCapaciteAccueil(int capaciteAccueil) {
-
-        this.capaciteAccueil = capaciteAccueil;
-
+    public void setWelcomingCapacity(int welcomingCapacity) {
+        this.welcomingCapacity = welcomingCapacity;
     }
 
-    public Proprete getNiveauProprete() {
-
-        return niveauProprete;
-
+    public Cleanliness getClealinessLevel() {
+        return clealinessLevel;
     }
 
-    public void setNiveauProprete(Proprete niveauProprete) {
-    
-        this.niveauProprete = niveauProprete;
-    
+    public void setClealinessLevel(Cleanliness clealinessLevel) {
+        this.clealinessLevel = clealinessLevel;
     }
-    
-    public int getNbPersoPresent() {
-    
-        return nbPersoPresent;
-    
+
+    public int getNbPresentCharacters() {
+        return nbPresentCharacters;
     }
-    
-    public void setNbPersoPresent(int nbPersoPresent) {
-    
-        this.nbPersoPresent = nbPersoPresent;
-    
+
+    public void setNbPresentCharacters(int nbPresentCharacters) {
+        this.nbPresentCharacters = nbPresentCharacters;
     }
-    
-    public ArrayList<Personnage> getPersonnagesPresent() {
-    
-        return personnagesPresent;
-    
+
+    public ArrayList<Character> getPresentCharacters() {
+        return presentCharacters;
     }
-    
-    public void setPersonnagesPresent(ArrayList<Personnage> personnagesPresent) {
-    
-        this.personnagesPresent = personnagesPresent;
-    
+
+    public void setPresentCharacters(ArrayList<Character> presentCharacters) {
+        this.presentCharacters = presentCharacters;
     }
 
     @Override
-    
     public String toString() {
-    
-        return "Batiment [nomBat=" + nomBat + ", superficie=" + superficie + ", capaciteAccueil=" + capaciteAccueil
-                + ", niveauProprete=" + niveauProprete + ", nbPersoPresent=" + nbPersoPresent + ", personnagesPresent="
-                + personnagesPresent + "]";
-    
+        return "Batiment [name=" + name + ", surface=" + surface + ", welcomingCapacity=" + welcomingCapacity
+                + ", clealinessLevel=" + clealinessLevel + ", nbPresentCharacters=" + nbPresentCharacters
+                + ", presentCharacters=" + presentCharacters + "]";
     }
 
-    public boolean accueillir(Personnage personnage){
+    public boolean accueillir(Character character){
 
-        if (nbPersoPresent < capaciteAccueil) {
+        if (nbPresentCharacters < welcomingCapacity) {
 
-            personnagesPresent.add(personnage) ;
-            nbPersoPresent += 1 ;
+            this.presentCharacters.add(character) ;
+            nbPresentCharacters += 1 ;
 
             return true ;
             
@@ -115,9 +95,9 @@ public abstract class Batiment {
 
     public void entretenir(){
 
-        if(nbPersoPresent == 0 && niveauProprete == Proprete.mauvais){
+        if(nbPresentCharacters == 0 && clealinessLevel == Cleanliness.bad){
 
-            this.setNiveauProprete(Proprete.bon);
+            this.setClealinessLevel(Cleanliness.good);
 
         } else {
 
