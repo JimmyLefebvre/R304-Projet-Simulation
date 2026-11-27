@@ -2,8 +2,6 @@ package VillagePereNoel.Batiments;
 
 import java.util.ArrayList;
 
-import javax.xml.stream.events.Characters;
-
 import VillagePereNoel.Characters.Character;
 
 public abstract class Batiment {
